@@ -1,0 +1,30 @@
+﻿<h2>Update existing patient information</h2>
+<form class="form-horizontal" ng-submit="">
+    <hr />
+
+    <div class="form-group">
+        <label>Name: {{patient.Name}}</label>
+        <!--<div>
+            <input type="text" class="form-control" ng-model="user.Name" />
+        </div>-->
+    </div>
+    <div class="form-group">
+        <label>Email: {{patient.Email}}</label>
+    </div>
+    <div class="form-group">
+        <label>Phone: {{patient.Phone}}</label>
+    </div>
+    <div class="form-group">
+        <label>Address: {{patient.Address}}</label>
+    </div>
+    <div class="form-group">
+        <label>Supervised By</label>
+    </div>
+    <div class="form-group">
+        <div>
+            <input type="submit" class="btn btn-success" value="Update" />
+            <a href="#/admin" class="btn btn-success">Admin</a>
+            <a href="#/" class="btn btn-success">Home</a>
+        </div>
+    </div>
+</form>

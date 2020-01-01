@@ -1,0 +1,67 @@
+﻿<h2>User</h2>
+<a href="#/addUser" class="btn btn-primary">Create New</a>
+<div class="panel panel-default">
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Are you a?</h4>
+                </div>
+                <div class="modal-body" style="text-align: center">
+                    <a href="#/addPatient" class="btn btn-primary">Patient</a>
+                    <a href="#/addDoctor" class="btn btn-primary">Doctor</a>
+                    <a href="#/admin" class="btn btn-primary">Admin</a>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="panel-heading">
+        List user
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group pull-left">
+                    <label>Search</label>
+                    <label><input type="text" class="form-control" ng-model="searchText" /></label>
+                </div>
+            </div>
+        </div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Phone</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="i in users | filter: searchText" ng-click="editUserByRow(i)">
+                    <!--ng-click="editUserByRow(i)"-->
+                    <td>{{i.Name}}</td>
+                    <td>{{i.Email}}</td>
+                    <td>{{i.Address}}</td>
+                    <td>{{i.Phone}}</td>
+                    <td>
+                        <a href="#/editUser/{{i.Id}}">Edit</a> |
+                        <a href="" ng-click="deleteUser(i.Id)">Delete</a>
+                    </td>
+                </tr>
+                <tr ng-if="!users || users.length == 0">
+                    <td colspan="5" style="text-align: center">
+                        No user data to display
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

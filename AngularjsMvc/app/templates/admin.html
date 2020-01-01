@@ -1,0 +1,68 @@
+﻿<h1>Welcome Admin</h1>
+<div role="tabpanel" class="tab-pane active container-fluid" id="home">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    List of Doctor
+                </div>
+                <div class="panel-body">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Phone</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="i in doctors">
+                                <td>{{i.Name}}</td>
+                                <td>{{i.Phone}}</td>
+                            </tr>
+                            <tr ng-if="!doctors || doctors.length == 0">
+                                <td colspan="5" style="text-align: center">
+                                    No doctor data to display
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    List of Patient
+                </div>
+                <div class="panel-body">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Phone</th>
+                                <th>Supervised By</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="i in patients">
+                                <td>{{i.Name}}</td>
+                                <td>{{i.Phone}}</td>
+                                <td>None</td>
+                                <td>
+                                    <a href="#/editPatient/{{i.Id}}">Add</a>
+                                </td>
+                            </tr>
+                            <tr ng-if="!patients || patients.length == 0">
+                                <td colspan="5" style="text-align: center">
+                                    No patient data to display
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#/" class="btn btn-success">Home</a>
+</div>
