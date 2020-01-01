@@ -1,8 +1,6 @@
 ﻿using AngularjsMvc.Models;
-using System;
-using System.Collections.Generic;
+using AngularjsMvc.ViewModels;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace AngularjsMvc.Controllers
@@ -24,8 +22,21 @@ namespace AngularjsMvc.Controllers
 
         public JsonResult Details(int id)
         {
-            var patient = _context.Doctors.Find(id);
+            var patient = _context.Patients.Find(id);
             return Json(patient, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult Edit(int id)
+        {
+            var patient = _context.Patients.Find(id);
+
+            var viewModel = new PatientViewModel()
+            {
+                Patient = patient,
+                Doctors = _context.Doctors.ToList()
+            };
+
+            return Json(viewModel, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]

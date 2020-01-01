@@ -112,6 +112,16 @@
                 return deferred.promise;
             };
 
+            service.getPatientDocById = function (id) {
+                var deferred = $q.defer();
+                $http.get('/Patient/Edit/' + id).then(function (result) {
+                    deferred.resolve(result.data);
+                }, function () {
+                    deferred.reject();
+                });
+                return deferred.promise;
+            };
+
             service.addPatient = function (patient) {
                 var deferred = $q.defer();
 

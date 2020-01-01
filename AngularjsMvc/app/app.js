@@ -29,6 +29,10 @@
                     controller: 'patientAddCtrl',
                     templateUrl: '/app/templates/patient.html'
                 })
+                .when('/detailsPatient/:id', {
+                    controller: 'patientDetailsCtrl',
+                    templateUrl: '/app/templates/patientDetails.html'
+                })
                 .when('/editPatient/:id', {
                     controller: 'patientEditCtrl',
                     templateUrl: '/app/templates/patientEdit.html'

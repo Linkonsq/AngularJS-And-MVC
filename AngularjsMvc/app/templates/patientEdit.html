@@ -3,26 +3,26 @@
     <hr />
 
     <div class="form-group">
-        <label>Name: {{patient.Name}}</label>
-        <!--<div>
-            <input type="text" class="form-control" ng-model="user.Name" />
-        </div>-->
+        <label>Name: {{patient.Patient.Name}}</label>
     </div>
     <div class="form-group">
-        <label>Email: {{patient.Email}}</label>
+        <label>Email: {{patient.Patient.Email}}</label>
     </div>
     <div class="form-group">
-        <label>Phone: {{patient.Phone}}</label>
+        <label>Phone: {{patient.Patient.Phone}}</label>
     </div>
     <div class="form-group">
-        <label>Address: {{patient.Address}}</label>
+        <label>Address: {{patient.Patient.Address}}</label>
     </div>
     <div class="form-group">
-        <label>Supervised By</label>
+        <label>Supervised By: </label>
+        <select>
+            <option ng-repeat="doctor in patient.Doctors">{{doctor}}</option>
+        </select>
     </div>
     <div class="form-group">
         <div>
-            <input type="submit" class="btn btn-success" value="Update" />
+            <input type="submit" class="btn btn-success" value="Save" />
             <a href="#/admin" class="btn btn-success">Admin</a>
             <a href="#/" class="btn btn-success">Home</a>
         </div>

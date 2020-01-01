@@ -14,10 +14,19 @@
                 });
             };
         }])
-        .controller('patientEditCtrl', ['$scope', '$routeParams', '$location', 'dataService', function ($scope, $routeParams, $location, dataService) {
+        .controller('patientDetailsCtrl', ['$scope', '$routeParams', '$location', 'dataService', function ($scope, $routeParams, $location, dataService) {
             $scope.patient = {};
 
             dataService.getPatientById($routeParams.id).then(function (result) {
+                $scope.patient = result;
+            }, function () {
+                toastr.error('Error in fetching patient with Id: ' + $routeParams.id);
+            });
+        }])
+        .controller('patientEditCtrl', ['$scope', '$routeParams', '$location', 'dataService', function ($scope, $routeParams, $location, dataService) {
+            $scope.patient = {};
+
+            dataService.getPatientDocById($routeParams.id).then(function (result) {
                 $scope.patient = result;
             }, function () {
                 toastr.error('Error in fetching patient with Id: ' + $routeParams.id);
