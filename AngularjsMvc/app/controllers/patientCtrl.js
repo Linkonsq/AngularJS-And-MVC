@@ -31,5 +31,12 @@
             }, function () {
                 toastr.error('Error in fetching patient with Id: ' + $routeParams.id);
             });
+
+            $scope.editPatient = function (patient) {
+                dataService.editPatient(patient.Patient).then(function () {
+                    toastr.success('Patient updated successfully');
+                    $location.path('/');
+                });
+            };
         }]);
 })();

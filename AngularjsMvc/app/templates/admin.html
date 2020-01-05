@@ -48,7 +48,8 @@
                             <tr ng-repeat="i in patients">
                                 <td>{{i.Name}}</td>
                                 <td>{{i.Phone}}</td>
-                                <td>None</td>
+                                <td ng-if="i.Doctor != null">{{i.Doctor.Name}}</td>
+                                <td ng-if="i.Doctor == null">None</td>
                                 <td>
                                     <a href="#/detailsPatient/{{i.Id}}">Details</a>
                                 </td>

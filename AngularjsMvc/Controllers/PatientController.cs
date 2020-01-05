@@ -1,5 +1,6 @@
 ﻿using AngularjsMvc.Models;
 using AngularjsMvc.ViewModels;
+using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -16,13 +17,14 @@ namespace AngularjsMvc.Controllers
         // GET: Patient
         public JsonResult Index()
         {
-            var patients = _context.Patients.ToList();
+            var patients = _context.Patients.Include(d => d.Doctor).ToList();
             return Json(patients, JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult Details(int id)
         {
-            var patient = _context.Patients.Find(id);
+            //var patient = _context.Patients.Include(d => d.Doctor).Find(id);
+            var patient = _context.Patients.Include(d => d.Doctor).SingleOrDefault(p => p.Id == id);
             return Json(patient, JsonRequestBehavior.AllowGet);
         }
 
@@ -43,6 +45,14 @@ namespace AngularjsMvc.Controllers
         public JsonResult Create(Patient patient)
         {
             _context.Patients.Add(patient);
+            _context.SaveChanges();
+            return Json(null);
+        }
+
+        [HttpPost]
+        public JsonResult Update(Patient patient)
+        {
+            _context.Entry(patient).State = EntityState.Modified;
             _context.SaveChanges();
             return Json(null);
         }

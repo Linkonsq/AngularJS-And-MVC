@@ -133,6 +133,17 @@
                 return deferred.promise;
             };
 
+            service.editPatient = function (patient) {
+                var deferred = $q.defer();
+
+                $http.post('/Patient/Update', patient).then(function () {
+                    deferred.resolve();
+                }, function () {
+                    deferred.reject();
+                });
+                return deferred.promise;
+            };
+
             //Admin Services
 
             return service;

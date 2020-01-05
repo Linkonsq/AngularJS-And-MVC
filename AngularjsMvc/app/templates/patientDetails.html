@@ -18,7 +18,8 @@
         <label>Address: {{patient.Address}}</label>
     </div>
     <div class="form-group">
-        <label>Supervised By: </label>
+        <label ng-if="patient.DoctorId == null">Supervised By: None</label>
+        <label ng-if="patient.DoctorId != null">Supervised By: {{patient.Doctor.Name}}</label>
     </div>
     <div class="form-group">
         <div>
