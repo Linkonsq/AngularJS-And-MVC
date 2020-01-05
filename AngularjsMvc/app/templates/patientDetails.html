@@ -23,8 +23,8 @@
     </div>
     <div class="form-group">
         <div>
-            <a href="#/editPatient/{{patient.Id}}" class="btn btn-success">Update</a>
-            <!--<input type="submit" class="btn btn-success" value="Update" />-->
+            <a href="#/editPatient/{{patient.Id}}" class="btn btn-success" ng-if="patient.DoctorId == null">Assign Supervisor</a>
+            <a href="#/editPatient/{{patient.Id}}" class="btn btn-success" ng-if="patient.DoctorId != null" style="display: none">Assign Supervisor</a>
             <a href="#/admin" class="btn btn-success">Admin</a>
             <a href="#/" class="btn btn-success">Home</a>
         </div>
